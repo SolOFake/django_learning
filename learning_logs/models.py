@@ -20,7 +20,6 @@ class Entry(models.Model):
     class Meta:
         verbose_name_plural = 'entries'
 
-
     def __str__(self):
         """Возвращает строковое представление модели."""
         return f'{self.text[:50]}...'
