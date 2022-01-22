@@ -8,4 +8,6 @@ app_name = 'learning_logs'  # помогает Django, отличить этот
 urlpatterns = [
     # Домашняя страница
     path('', views.index, name='index'),  # путь(localhost:8000), вьюха, имя
+    # Страница со списком всех тем.
+    path('topics/', views.topics, name='topics'),
 ]
