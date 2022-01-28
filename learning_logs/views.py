@@ -40,10 +40,10 @@ def new_topic(request):
         form = TopicForm()
     else:
         # Отправлены данные POST; обработать данные.
-        form = TopicForm(data=request.POST)
+        form = TopicForm(data=request.POST)  # принимает данные пользователя введенные в форму request.POST
         if form.is_valid():
             form.save()
-            return redirect('learning_logs:topics')
+            return redirect('learning_logs:topics')  # редирект после добавления темы, к списку тем
     # Вывести пустую или недействительную форму.
     context = {'form': form}
     return render(request, 'learning_logs/new_topic.html', context)
