@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # в приложении есть вой urls.py include на него ссылается
+    path('users/', include('users.urls')),
     path('', include('learning_logs.urls'))
 ]

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% extends "learning_logs/base.html" %}
+
+    {% block content %}
+
+        {% if form.errors %} <!-- Если комбинация имени пользователя и пароля не соответствует
+                                  информации, хранящейся в базе данных -->
+        <p>Ваше имя пользователя и пароль не совпадают. Пожалуйста, попробуйте еще раз.</p>
+        {% endif %}
+
+        <form method="post" action="{% url 'users:login' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button name="submit">log in</button> <!-- Добавление кнопки отправки данных -->
+            <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" /> <!-- Скрытый элемент формы
+                                                        "next", аргумент value сообщает Django, куда
+                                                        перенаправить пользователя после успешно выполненного входа -->
+        </form>
+
+    {% endblock content %}
+
+</body>
+</html>
