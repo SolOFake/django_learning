@@ -10,9 +10,10 @@
         <a href="{% url 'learning_logs:topics' %}">Topics</a> -
         {% if user.is_authenticated %}
             Hello, {{ user.username }}.
-            <a href="{% url 'users:logout' %}">log out</a>
+            <a href="{% url 'users:logout' %}">Выйти с аккаунта</a>
         {% else %}
-            <a href="{% url 'users:login' %}">log in</a> -
+            <a href="{% url 'users:register' %}">Регистрация</a> -
+            <a href="{% url 'users:login' %}">Войти</a> -
         {% endif %}
 
         <a href="{% url 'admin:index' %}">Админка</a>
